@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const ListElement = (props: {
   curTodos: {
     data: string;
@@ -15,14 +13,13 @@ const ListElement = (props: {
   >;
 }) => {
   const itemOnClick = (idx: number) => {
-    const temp = props.curTodos.filter((value, index) => index !== idx);
+    const temp = props.curTodos.filter((v, index) => index !== idx);
     props.handleTodos(temp);
   };
   const handleCheckbox = (idx: number) => {
-    const temp = props.curTodos.filter((value, index) =>
+    const temp = props.curTodos.map((value, index) =>
       index === idx ? { ...value, checked: !value.checked } : value
     );
-    console.log(temp);
     props.handleTodos(temp);
   };
 
