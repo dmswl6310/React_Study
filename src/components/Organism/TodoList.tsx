@@ -2,7 +2,6 @@ import ListItem from "../Molecule/ListItem";
 import TodoInput from "../Molecule/TodoInput";
 import styled from "styled-components";
 import { useState } from "react";
-import { useEffect } from "react";
 // import TodoInput1 from "../Molecule/TodoInput1";
 
 const TodoList = () => {
@@ -24,7 +23,6 @@ const TodoList = () => {
   };
 
   const select = (idx: number) => {
-    console.log("select!!");
     const tmpArr = list.slice();
     const tmp = {
       value: list[idx].value,
@@ -33,13 +31,10 @@ const TodoList = () => {
     tmpArr.splice(idx, 1, tmp);
     setlist(tmpArr);
   };
-  useEffect(() => {
-    console.log("render!");
-  }, []);
 
   return (
     <Wrapper>
-      <h5>일정 관리</h5>
+      <div className='todolist-header'>일정 관리</div>
       <TodoInput onClick={addList} />
       {/* <TodoInput1 datalist={list} setlist={setlist} /> */}
       {list.map((item, idx) => {
@@ -63,6 +58,17 @@ const Wrapper = styled.div`
   width: 50vh;
   margin-left: auto;
   margin-right: auto;
+  margin-top : 10px;
+
+  .todolist-header {
+    display: flex;
+    background-color: #00b894;
+    height: 10vh;
+    color: white;
+    font-size: 1.2em;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export default TodoList;

@@ -12,19 +12,58 @@ const TodoInput = (props: { onClick: (text: string) => void }) => {
   };
   return (
     <TodoInputWrapper>
-      <input type="text" ref={inputElement} />
-      <button
+      <input className='todolist-input'
+      type="text"
+      placeholder="할 일을 입력하세요" 
+      ref={inputElement} />
+      <div className='todolist-input__btn'
         onClick={() => add((inputElement.current as HTMLInputElement).value)}
       >
         {" "}
-        추가{" "}
-      </button>
+        +{" "}
+      </div>
     </TodoInputWrapper>
   );
 };
 
 const TodoInputWrapper = styled.div`
-  width: 100%;
+  display: flex;
+  .todolist-input {
+    width : 40vh;
+    height: 40px;
+
+    border: none;
+    margin : 0;
+    padding : 0;
+    background-color: #353b48;
+    color : white;
+    :focus {
+      border: none;
+      outline: none;
+    }
+    ::placeholder{
+      color: white;
+    }
+  }
+  .todolist-input__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width : 10vh;
+    height: 40px;
+
+    border: none;
+    margin: 0;
+    background-color: #718093;
+    color : white;
+    font-size: 20px;
+    font-weight: bold;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 export default TodoInput;
