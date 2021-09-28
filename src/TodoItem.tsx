@@ -1,19 +1,19 @@
 import React from 'react';
 
 export type TodoItemProps = {
-  todo: {
+    todoItem: {
     id: number;
     text: string;
     done: boolean;
   };
 }
 
-function TodoItem({ todo }: TodoItemProps) {
+function TodoItem({ todoItem }: TodoItemProps) {
 
 
   return (
-    <li className={`TodoItem ${todo.done ? 'done' : ''}`}>
-      <span className="text" >{todo.text}</span>
+    <li className={`TodoItem ${todoItem.done ? 'done' : ''}`}>
+      <span className="text" >{todoItem.text}</span>
       <button className="remove" >-</button>
     </li>
   );

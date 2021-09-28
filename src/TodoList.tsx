@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import TodoItem from './TodoItem';
 
 function TodoList() {
@@ -19,10 +19,11 @@ function TodoList() {
       done: false
     }
   ];
+
   return (
     <ul>
       {todos.map(todo => (
-        <TodoItem todo={todo} key={todo.id} />
+        <TodoItem todoItem={todo} />
       ))}
     </ul>
   );
