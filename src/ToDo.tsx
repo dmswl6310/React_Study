@@ -67,14 +67,14 @@ const ToDo = () => {
       check: false,
     };
     for (let arr_v of todo) {
-      if (arr_v.id === id && todo.indexOf(arr_v)!==todo.length-1) {
+      if (arr_v.id === id && todo.indexOf(arr_v) !== todo.length - 1) {
         temp = arr_v;
-      }else{
+      } else {
         nextTodo = [...nextTodo, arr_v];
-        if (temp.id !== -1 && todo.indexOf(arr_v)===todo.indexOf(temp)+1) {
+        if (temp.id !== -1 && todo.indexOf(arr_v) === todo.indexOf(temp) + 1) {
           nextTodo = [...nextTodo, temp];
         }
-      } 
+      }
     }
     setTodo(nextTodo);
   };
