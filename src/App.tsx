@@ -1,3 +1,5 @@
+import { MainContainer } from "./components/MainContainer";
+
 function App() {
   return (
     <div>
@@ -8,6 +10,9 @@ function App() {
 
       <h3> 추가 작업</h3>
       <li> 선택된 작업에 대해 위 / 아래 버튼을 통해 목록의 순서 조정하기 </li>
+
+      <hr/>
+      <MainContainer/>
     </div>
   );
 }
