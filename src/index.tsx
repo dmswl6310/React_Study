@@ -1,14 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TodoListForm from './TodoListForm';
-import TodoListItem from './TodoListItem';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TodoListForm />
-    <TodoListItem/>
-    <TodoListItem/>
-    <TodoListItem/>
+    <App/>
   </React.StrictMode>,
   document.getElementById("root")
 );
