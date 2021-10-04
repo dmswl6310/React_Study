@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import styled from "styled-components";
+import InputBox from "./InputBox";
 import ListElement from "./ListElement";
 
 const TodoList = () => {
@@ -9,32 +11,17 @@ const TodoList = () => {
     },
   ]);
 
-  const inputRef = useRef<any>(null);
-
-  const handleClick = () => {
-    setTodos([...todos, { data: inputRef.current.value, checked: false }]);
-    inputRef.current.value = null;
-  };
-
-  const onKeyPress = (e: any) => {
-    if (e.key === "Enter") {
-      setTodos([...todos, { data: e.target.value, checked: false }]);
-      e.target.value = null;
-    }
-  };
-
   return (
-    <>
+    <Total>
       <h1>TodoList 만들기</h1>
       <ListElement curTodos={todos} handleTodos={setTodos} />
-      <input
-        type="text"
-        ref={inputRef}
-        onKeyPress={onKeyPress}
-        placeholder="할일 입력"
-      ></input>
-      <button onClick={handleClick}>입력</button>
-    </>
+      <InputBox curTodos={todos} handleTodos={setTodos} />
+    </Total>
   );
 };
 export default TodoList;
+
+const Total = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
