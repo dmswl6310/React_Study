@@ -12,11 +12,34 @@ const ListElement = (props: {
     >
   >;
 }) => {
-  const itemOnClick = (idx: number) => {
+  const removeOnClick = (idx: number) => {
     const temp = props.curTodos.filter((v, index) => index !== idx);
     props.handleTodos(temp);
   };
-  const handleCheckbox = (idx: number) => {
+
+  const upOnClick = (idx: number) => {
+    const temp = props.curTodos.map((value, index) =>
+      index === idx - 1
+        ? props.curTodos[idx]
+        : index === idx
+        ? props.curTodos[idx - 1]
+        : value
+    );
+    props.handleTodos(temp);
+  };
+
+  const downOnClick = (idx: number) => {
+    const temp = props.curTodos.map((value, index) =>
+      index === idx
+        ? props.curTodos[idx + 1]
+        : index === idx + 1
+        ? props.curTodos[idx]
+        : value
+    );
+    props.handleTodos(temp);
+  };
+
+  const liOnClick = (idx: number) => {
     const temp = props.curTodos.map((value, index) =>
       index === idx ? { ...value, checked: !value.checked } : value
     );
@@ -24,16 +47,19 @@ const ListElement = (props: {
   };
 
   const liItems = props.curTodos.map((item, idx) => (
-    <li key={idx}>
-      <input
-        type="checkbox"
-        checked={props.curTodos[idx].checked}
-        onChange={() => handleCheckbox(idx)}
-      />
-      {item.data}
-      <button onClick={() => itemOnClick(idx)}>-</button>
-    </li>
+    <>
+      <li key={idx} onClick={() => liOnClick(idx)}>
+        <input type="checkbox" checked={props.curTodos[idx].checked} readOnly />
+        {item.data}
+      </li>
+      <button onClick={() => removeOnClick(idx)}>-</button>
+      <div>
+        <button onClick={() => upOnClick(idx)}>∧</button>
+        <button onClick={() => downOnClick(idx)}>∨</button>
+      </div>
+    </>
   ));
+
   return <ul>{liItems}</ul>;
 };
 export default ListElement;
