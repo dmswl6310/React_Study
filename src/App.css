@@ -15,14 +15,10 @@
   text-decoration-line: line-through;
 }
 
-.TodoItem .text {
+.Todo {
   cursor: pointer;
 }
 
-.TodoItem.done .text {
-  color: #999999;
-  text-decoration: line-through;
-}
 
 .TodoItem .remove {
   color: red;

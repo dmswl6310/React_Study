@@ -1,12 +1,10 @@
 import React from 'react';
-import TodoForm from './TodoForm';
-import TodoList from './TodoList';
+import Form from './Form';
 
 const App = () => {
   return (
     <>
-      <TodoForm />
-      <TodoList />
+      <Form />
     </>
   );
 };
