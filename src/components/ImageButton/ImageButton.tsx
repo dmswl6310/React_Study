@@ -1,11 +1,13 @@
 const ImageButton = (
     props: {
         src: string,
-        onClick: any
+        onClick?: React.MouseEventHandler<HTMLImageElement>
     }
 ) => {
     return (
-        <img onClick={props.onClick} src={props.src} alt="" width="15" height="15"/>
+        <div style={{display:'inline-block', marginRight: 5}}>
+            <img onClick={props.onClick} src={props.src} alt="" width="15" height="15"/>
+        </div>
     );
 };
 

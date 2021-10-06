@@ -3,18 +3,18 @@ import { TodoCreator } from "../TodoCreator";
 import { TodoList } from "../TodoList";
 
 const todoList: Todo[] = [
-    {index: 1, text: 'Todo Item1', checked: true},
-    {index: 2, text: 'Todo Item2', checked: false},
-    {index: 3, text: 'Todo Item3', checked: true},
+    {no: 1, text: 'Todo Item1', checked: true},
+    {no: 2, text: 'Todo Item2', checked: false},
+    {no: 3, text: 'Todo Item3', checked: true},
 ];
 
 const MainContainer = () => {
     const [todoItemList, setTodoItemList] = useState<Todo[]>(todoList);
-    const [index, setIndex] = useState(4);
+    const [no, setNo] = useState<number>(4);
     
     return (
         <div>
-            <TodoCreator index={index} setIndex={setIndex} todoItemList={todoItemList} setTodoItemList={setTodoItemList}/>
+            <TodoCreator todoItemList={todoItemList} setTodoItemList={setTodoItemList} no={no} setNo={setNo}/>
             <TodoList todoItemList={todoItemList} setTodoItemList={setTodoItemList}/>
         </div>
     );

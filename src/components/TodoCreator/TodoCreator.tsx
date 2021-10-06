@@ -1,28 +1,32 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { ImageButton } from "../ImageButton";
 
 const TodoCreator = (
     props: {
-        index: number,
         todoItemList: Todo[],
-        setIndex: any,
-        setTodoItemList: any
+        setTodoItemList: any,
+        no:number,
+        setNo: any,
     }
 ) => {
-    const [text, setText] = useState<string>('');
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const onClick = () => {
-        const todoItem: Todo = {index: props.index + 1, text: text, checked: false};
-        const newTodoItemList = props.todoItemList.concat(todoItem);
-        props.setTodoItemList(newTodoItemList);
-        props.setIndex(props.index + 1);
+        if(inputRef.current) {
+            const text: string = inputRef.current.value;
+            inputRef.current.focus();
+            inputRef.current.value = '';
+
+            const todoItem: Todo = {no: props.no, text, checked: false};
+            const newTodoItemList = props.todoItemList.concat(todoItem);
+            props.setTodoItemList(newTodoItemList);
+            props.setNo(props.no + 1);
+        }
     }
-    const handlingChange = (e: any) => {
-        setText(e.target.value);
-    }
+
     return (
         <div>
-            <input type="text" onChange={handlingChange} style={{width: '275px'}} /><ImageButton src={'img_plus.png'} onClick={onClick}/>
+            <input type="text" ref={inputRef} style={{width: '275px'}} /><ImageButton src={'img_plus.png'} onClick={onClick}/>
         </div>
     );
 };

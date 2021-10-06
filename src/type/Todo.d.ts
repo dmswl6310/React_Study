@@ -1,5 +1,5 @@
 type Todo = {
-    index: number;
+    no: number;
     text: string;
     checked: boolean;
 }
