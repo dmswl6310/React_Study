@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import { useState } from "react";
 import ToDoInput from "./ToDoInput";
 import ToDoList from "./ToDoList";
 
@@ -8,8 +7,8 @@ const ToDo = () => {
 
   return (
     <>
-      <ToDoInput todo={todo} setTodo={setTodo}/>
-      <ToDoList todo={todo} setTodo={setTodo}/>
+      <ToDoInput todo={todo} setTodo={setTodo} />
+      <ToDoList todo={todo} setTodo={setTodo} />
     </>
   );
 };
