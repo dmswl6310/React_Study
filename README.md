@@ -40,10 +40,9 @@
  
  - 리덕스 사용하기
  
-(리덕스 영상 추천-8분컷)https://www.youtube.com/watch?v=QZcYz2NrDIs
+   (리덕스 영상 추천-8분컷)https://www.youtube.com/watch?v=QZcYz2NrDIs
 
-
-=> 틱택토게임은 리덕스 없이 구현가능하나, 리덕스를 연습할겸 state 한개 이상을 리덕스로 써보자!
+   => 틱택토게임은 리덕스 없이 구현가능하나, 리덕스를 연습할겸 state 한개 이상을 리덕스로 써보자!
 
 
  - 시간이 남는분은 아래 심화 추가 구현을 해보세요.
