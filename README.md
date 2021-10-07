@@ -25,6 +25,7 @@
   
   
   - 틱택토 화면
+  
   ![image](https://user-images.githubusercontent.com/45475492/136340656-9973a448-ec52-42ed-9d8b-f4ab2527a5dc.png)
   
   
