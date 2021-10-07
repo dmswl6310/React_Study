@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const ListElement = (props: {
   curTodos: {
     data: string;
@@ -47,19 +49,34 @@ const ListElement = (props: {
   };
 
   const liItems = props.curTodos.map((item, idx) => (
-    <>
-      <li key={idx} onClick={() => liOnClick(idx)}>
+    <TodoItem>
+      <TodoText  key={idx} onClick={() => liOnClick(idx)}>
         <input type="checkbox" checked={props.curTodos[idx].checked} readOnly />
         {item.data}
-      </li>
+      </TodoText>
       <button onClick={() => removeOnClick(idx)}>-</button>
-      <div>
-        <button onClick={() => upOnClick(idx)}>∧</button>
-        <button onClick={() => downOnClick(idx)}>∨</button>
-      </div>
-    </>
+      <UpDownWrapper>
+        <UpDownButton onClick={() => upOnClick(idx)}>∧</UpDownButton>
+        <UpDownButton onClick={() => downOnClick(idx)}>∨</UpDownButton>
+      </UpDownWrapper>
+    </TodoItem>
   ));
 
   return <ul>{liItems}</ul>;
 };
 export default ListElement;
+
+const TodoItem = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const UpDownWrapper=styled.div`
+display: flex;
+flex-direction: column;
+`
+const UpDownButton=styled.button`
+height:20px;
+`
+const TodoText=styled.li`
+list-style:none;
+`
