@@ -23,8 +23,11 @@
   (정답이 나와있으니 최대한 안보고 해보자)
   
   
+  
   - 틱택토 화면
   ![image](https://user-images.githubusercontent.com/45475492/136340656-9973a448-ec52-42ed-9d8b-f4ab2527a5dc.png)
+  
+  
   
  - 구현하기
  
