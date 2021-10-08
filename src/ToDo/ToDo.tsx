@@ -7,6 +7,7 @@ const ToDo = () => {
 
   return (
     <>
+      <h1>React Study TODO List </h1>
       <ToDoInput todo={todo} setTodo={setTodo} />
       <ToDoList todo={todo} setTodo={setTodo} />
     </>
