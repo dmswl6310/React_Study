@@ -24,9 +24,8 @@ export default TodoList;
 const Total = styled.div`
   display: flex;
   flex-direction: column;
-  margin:20px
+  margin:20px;
 `;
 
 const Title = styled.h2`
-text-align: center;
 `

@@ -20,6 +20,7 @@ const ListElement = (props: {
   };
 
   const upOnClick = (idx: number) => {
+    if (idx===0) return;
     const temp = props.curTodos.map((value, index) =>
       index === idx - 1
         ? props.curTodos[idx]
@@ -31,6 +32,7 @@ const ListElement = (props: {
   };
 
   const downOnClick = (idx: number) => {
+    if (idx===props.curTodos.length-1) return;
     const temp = props.curTodos.map((value, index) =>
       index === idx
         ? props.curTodos[idx + 1]
@@ -50,10 +52,10 @@ const ListElement = (props: {
 
   const liItems = props.curTodos.map((item, idx) => (
     <TodoItem>
-      <TodoText  key={idx} onClick={() => liOnClick(idx)}>
+      <TodoBox  key={idx} onClick={() => liOnClick(idx)}>
         <input type="checkbox" checked={props.curTodos[idx].checked} readOnly />
-        {item.data}
-      </TodoText>
+        <TodoText>{item.data}</TodoText>
+      </TodoBox>
       <button onClick={() => removeOnClick(idx)}>-</button>
       <UpDownWrapper>
         <UpDownButton onClick={() => upOnClick(idx)}>∧</UpDownButton>
@@ -77,6 +79,11 @@ flex-direction: column;
 const UpDownButton=styled.button`
 height:20px;
 `
-const TodoText=styled.li`
+const TodoBox=styled.li`
 list-style:none;
+display:flex;
+flex-direction:row;
+`
+const TodoText=styled.div`
+
 `
