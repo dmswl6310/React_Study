@@ -115,9 +115,9 @@ const ToDoList = (props: { todo: todotype; setTodo: any }) => {
               <ListItem>{item.text}</ListItem>
             )}
           </span>
-          <ToDoButton text="-" ev={onRemove.bind(this, item.id)}></ToDoButton>
-          <ToDoButton text="↑" ev={onMoveUp.bind(this, item.id)}></ToDoButton>
-          <ToDoButton text="↓" ev={onMoveDown.bind(this, item.id)}></ToDoButton>
+          <ToDoButton text="-" ev={()=>onRemove(item.id)}></ToDoButton>
+          <ToDoButton text="↑" ev={()=>onMoveUp(item.id)}></ToDoButton>
+          <ToDoButton text="↓" ev={()=>onMoveDown(item.id)}></ToDoButton>
         </div>
       ))}
     </div>
