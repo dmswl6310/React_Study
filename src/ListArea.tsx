@@ -2,16 +2,49 @@ import { useState } from "react"
 
 const ListArea = () =>{
     
-    const[toDos, setToDos] = useState([
-        {id: 1 , text : "일정을 추가하세요"}
-    ])
+    const [toDos, setTodos] = useState([ //리스트생성
+        {id : 1 , list : '오늘의 할일'}
+      ]);
     
-    const[inputText,setInputText] = useState("");
-    const[nextId, setNextId] = useState("2")
+      const[inputList, setInputList] = useState('') //초기값
+      const[nextId, setNextId] = useState(2) //다음 id 값
     
-
-    const toDoList = toDos.map((todo,index) => <li  key={todo.id}>{todo.text}  <button>-</button></li>)
-    return <ul>{toDoList}</ul>
+      const onChange  = (e : any) => {
+        setInputList(e.target.value)
+        console.log(e.target.value)
+      }
+      
+      const onClick = () =>{
+        const nexttoDos = toDos.concat(
+         { 
+           id : nextId,
+          list : inputList
+         }
+        );
+        console.log(inputList)
+        setNextId(nextId +1)
+        setTodos(nexttoDos)
+        setInputList('');
+        
+      }
+      
+      const onDelete = (id : number) => {
+        const nexttoDos = toDos.filter(toDo => toDo.id !== id)
+        setTodos(nexttoDos)
+      }
+  
+      //리스트 표기
+      const viewerList = toDos.map(toDo => 
+        <li key = {toDo.id}>{toDo.list}<button onClick ={()=> onDelete(toDo.id)}>삭제</button></li>
+        )
+      
+      return(
+          <div>
+            <input value = {inputList} onChange={onChange}></input>
+            <button onClick ={onClick}>+</button>
+            <ul>{viewerList}</ul>
+          </div>
+      )
 }
 
 export default ListArea;
