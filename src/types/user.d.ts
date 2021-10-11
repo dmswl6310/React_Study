@@ -1,0 +1,1 @@
+type userState = boolean;
