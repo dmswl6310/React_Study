@@ -45,6 +45,12 @@
 
    => 틱택토게임은 리덕스 없이 구현가능하나, 리덕스를 연습할겸 state 한개 이상을 리덕스로 써보자!
 
+   
+   리덕스가 용어가 어려워..! => (https://ko.redux.js.org/introduction/getting-started) 공식문서를 잘 살펴보자
+   
+   리덕스 사용시 폴더를 어떻게 짤까...? => (https://redux.vlpt.us/1-1-workspace-setup.html) 이부분부터 어떻게 구성하였나 찬찬히 살펴보자.
+   
+   
 
  - 시간이 남는분은 아래 심화 추가 구현을 해보세요.
 
