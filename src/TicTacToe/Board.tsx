@@ -1,10 +1,23 @@
 import styled from "styled-components";
+import * as actions from '../actions'
+import {useDispatch, useSelector } from 'react-redux';
+
 const Board = () => {
+
+const dispatch=useDispatch();
+
+const handleClick=()=>{
+  const {nextPlayer}=useSelector(state=>({
+    nextPlayer:state.nextPlayer,
+  }))
+  dispatch(actions.changePlayer())
+}
+
   return (
     <TableContainer>
       <Table>
         <Row>
-          <Data className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
           <Data className="content">O</Data>
           <Data className="content">O</Data>
         </Row>
@@ -33,7 +46,8 @@ const TableContainer = styled.div`
 const Table = styled.table`
   width: 90%;
 `;
-const Row = styled.tr``;
+const Row = styled.tr`
+`;
 const Data = styled.td`
   width: 33.33%;
   position: relative;
