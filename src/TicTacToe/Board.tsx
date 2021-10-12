@@ -7,9 +7,9 @@ const Board = () => {
 const dispatch=useDispatch();
 
 const handleClick=()=>{
-  const {nextPlayer}=useSelector(state=>({
-    nextPlayer:state.nextPlayer,
-  }))
+  // const {nextPlayer}=useSelector(state=>({
+  //   nextPlayer:state.
+  // }))
   dispatch(actions.changePlayer())
 }
 
@@ -18,18 +18,18 @@ const handleClick=()=>{
       <Table>
         <Row>
           <Data onClick={handleClick} className="content">O</Data>
-          <Data className="content">O</Data>
-          <Data className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
         </Row>
         <Row>
-          <Data className="content">O</Data>
-          <Data className="content">O</Data>
-          <Data className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
         </Row>
         <Row>
-          <Data className="content">O</Data>
-          <Data className="content">O</Data>
-          <Data className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
+          <Data onClick={handleClick} className="content">O</Data>
         </Row>
       </Table>
     </TableContainer>

@@ -12,7 +12,7 @@ function reducer(state=initialState,action: { type: any; }){
         case types.CHANGE_PLAYER:
             return{
                 ...state,
-               nextplayer: (state.nextPlayer==='O'? "X" : "O")
+               nextPlayer: (state.nextPlayer==='O'? "X" : "O")
             }
         default:
             return state;
