@@ -1,3 +1,3 @@
 import MainComponent from "./MainComponent";
 
-export { MainComponent };
+export { MainComponent as MainContainer };

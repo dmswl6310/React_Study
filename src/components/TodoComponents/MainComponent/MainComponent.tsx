@@ -8,7 +8,7 @@ const todoList: Todo[] = [
     {no: 3, text: 'Todo Item3', checked: true},
 ];
 
-const MainContainer = () => {
+const MainComponent = () => {
     const [todoItemList, setTodoItemList] = useState<Todo[]>(todoList);
     const [no, setNo] = useState<number>(4);
     
@@ -20,4 +20,4 @@ const MainContainer = () => {
     );
 };
 
-export default MainContainer;
+export default MainComponent;

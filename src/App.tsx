@@ -1,5 +1,5 @@
 // import { MainContainer } from "./components/MainContainer";
-import { MainComponent } from "./components/TicTacToeComponents/MainComponent";
+import TicTacToe from "./components/TicTacToeComponents/TicTacToe/TicTacToe";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
 
       <hr/>
       <MainContainer/> */}
-      <MainComponent/>
+      <TicTacToe/>
     </div>
   );
 }

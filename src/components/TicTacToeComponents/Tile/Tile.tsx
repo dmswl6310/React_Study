@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Tile = (props: {
-    data: TileState,
+    data: Table,
     onClick: any
 }) => {
     const state: number = props.data.state;

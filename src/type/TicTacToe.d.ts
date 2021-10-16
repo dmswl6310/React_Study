@@ -1,4 +1,4 @@
-type TileState = {
+type Table = {
     no: number;
     state: number;
 };

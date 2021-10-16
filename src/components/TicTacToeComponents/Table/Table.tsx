@@ -1,15 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { RootState } from "../../../stores";
+import { hisotryActions, tableActions } from "../../../stores/actions";
+import { indexToXY } from "../../../utils/converter.utils";
 import Tile from "../Tile/Tile";
 
-const Table = (props: {
-  table: TileState[],
-  setTableData: any,
-  turn: number,
-  setTurn: any,
-  gameState: number,
-  setGameState: any
-}) => {
-    const { table, turn, gameState } = props;
+const Table = () => {
+    const dispatch = useDispatch();
+
+    const gameState = useSelector((state: RootState) => state.table?.gameState );
+    const turn = useSelector((state: RootState) => state.table?.turn );
+    const table: Table[] = useSelector((state: RootState) => state.table?.data );
+    const history: Table[] = useSelector((state: RootState) => state.history?.history);
 
     const onClick = (index: number) => {
         if(gameState !== 2) {
@@ -17,19 +19,23 @@ const Table = (props: {
         }
 
         if(turn !== 9 && table[index].state === 2) {
-            const newTableData: TileState[] = table.map((data, idx) => 
-                idx === index ? {no: data.no, state: turn % 2} : data
+            const newData = { no: index, state: turn % 2 };
+            const newTableData: Table[] = table.map((data, idx) => 
+                idx === index ? newData : data
             );
-            props.setTurn(turn + 1);
-            props.setTableData(newTableData);
+            
+            dispatch(tableActions.setTurn(turn + 1));
+            dispatch(tableActions.setTableData(newTableData));
+            dispatch(tableActions.setGameState(checkGameOver(newTableData, index)));
 
-            props.setGameState(checkGameOver(newTableData, index));
+            const newHistory = history.concat(newData);
+
+            dispatch(hisotryActions.setHistory(newHistory));
         }
     };
 
-    const checkGameOver = (newTableData: TileState[], index: number): number => {
-        let x = Math.floor(index / 3);
-        let y = index % 3;
+    const checkGameOver = (newTableData: Table[], index: number): number => {
+        const { x, y } = indexToXY(index);
 
         const nowState = newTableData[index].state;
         // 가로
