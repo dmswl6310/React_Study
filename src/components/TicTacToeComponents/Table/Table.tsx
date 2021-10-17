@@ -8,10 +8,10 @@ import Tile from "../Tile/Tile";
 const Table = () => {
     const dispatch = useDispatch();
 
-    const gameState = useSelector((state: RootState) => state.table?.gameState );
-    const turn = useSelector((state: RootState) => state.table?.turn );
-    const table: Table[] = useSelector((state: RootState) => state.table?.data );
-    const history: Table[] = useSelector((state: RootState) => state.history?.history);
+    const gameState = useSelector((state: RootState) => state.table.gameState );
+    const turn = useSelector((state: RootState) => state.table.turn );
+    const table: Table[] = useSelector((state: RootState) => state.table.data );
+    const history: HistoryData[] = useSelector((state: RootState) => state.history.history);
 
     const onClick = (index: number) => {
         if(gameState !== 2) {
@@ -23,12 +23,15 @@ const Table = () => {
             const newTableData: Table[] = table.map((data, idx) => 
                 idx === index ? newData : data
             );
-            
-            dispatch(tableActions.setTurn(turn + 1));
-            dispatch(tableActions.setTableData(newTableData));
-            dispatch(tableActions.setGameState(checkGameOver(newTableData, index)));
+            const newGameState = checkGameOver(newTableData, index);
+            const newTurn = turn + 1;
 
-            const newHistory = history.concat(newData);
+            dispatch(tableActions.setTurn(newTurn));
+            dispatch(tableActions.setTableData(newTableData));
+            dispatch(tableActions.setGameState(newGameState));
+
+            const historyData: HistoryData = { data: newTableData, turn: newTurn, gameState: newGameState, clickedIdx: index };
+            const newHistory = history.concat(historyData);
 
             dispatch(hisotryActions.setHistory(newHistory));
         }

@@ -1,36 +1,32 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { RootState } from '../../../../stores';
-import { tableActions } from '../../../../stores/actions';
+import { hisotryActions, tableActions } from '../../../../stores/actions';
 import { indexToXY } from '../../../../utils/converter.utils';
 import HistoryItem from './HistoryItem';
 
-const historyToString = (history: Table, idx: number) => {
-    const { x, y } = indexToXY(history.no);
+const historyToString = (table: Table, idx: number) => {
+    const { x, y } = indexToXY(table.no);
 
-    return `${idx + 1} 번째, (${x},${y})`;
+    return `${idx + 1} 번째, (${x},${y}), ${table.state === 0 ? 'O' : 'X'}`;
 }
 
 const HistoryList = () => {
     const dispatch = useDispatch();
-    const table: Table[] = useSelector((state: RootState) => state.table.data);
-    const history: Table[] = useSelector((state: RootState) => state.history.history);
+    const history: HistoryData[] = useSelector((state: RootState) => state.history.history);
 
     const onClick = ( index: number) => {
-        console.log(`${index + 1} 번째 history 클릭.`)
-        // const data = history[history.length - 1];
-        // const turn = index;
-        // const gameState = turn % 2;
+        console.log(`${index + 1} 번째 history 클릭.`);
 
-        // const newTableData = table.
-        
-        // dispatch(tableActions.setTableData)
-    }
+        const newHistory = history.filter((data, idx) => idx <= index);
+        dispatch(hisotryActions.setHistory(newHistory));
+        dispatch(tableActions.setHistory(history[index]));
+    };
 
     return (
-        <Wrapper>{history.map((data, idx) => 
+        <Wrapper>{history.map((historyData, idx) => 
             <HistoryItem key={idx}
-                         text={historyToString(data, idx)}
+                         text={historyToString(historyData.data[historyData.clickedIdx], idx)}
                          onClick={() => onClick(idx)}></HistoryItem>)}
         </Wrapper>
     );

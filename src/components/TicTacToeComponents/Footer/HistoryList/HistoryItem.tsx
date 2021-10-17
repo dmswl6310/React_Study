@@ -14,7 +14,11 @@ const HistoryItem = (
 }
 
 const Wrapper = styled.div`
-
+    border: 1px solid black;
+    &:hover {
+        background-color: black;
+        color: white;
+    }
 `;
 
 export default HistoryItem;

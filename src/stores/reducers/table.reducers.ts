@@ -59,6 +59,13 @@ export default function tableReducers(
             return { ...state, turn: action.payload};
         case table.SET_GAME_STATE:
             return { ...state, gameState: action.payload};
+        case table.SET_HISTORY:
+            return { ...state,
+                     data: action.payload.data,
+                     turn: action.payload.turn,
+                     gameState: action.payload.gameState,
+                     clickedIdx: action.payload.clickedIdx
+                    };
         default: 
             return state;
     }

@@ -3,7 +3,9 @@ type Table = {
     state: number;
 };
 
-type TurnState = {
-    nowTurn: number;
-    remainTurn: number;
-};
+type HistoryData = {
+    data: Table[];
+    turn: number;
+    gameState: number;
+    clickedIdx: number;
+}

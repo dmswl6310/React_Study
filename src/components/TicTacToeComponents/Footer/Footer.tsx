@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../stores";
-import { tableActions } from "../../../stores/actions";
+import { hisotryActions, tableActions } from "../../../stores/actions";
 import { HistoryList } from "./HistoryList";
 
 const Footer = () => {
@@ -10,6 +10,7 @@ const Footer = () => {
 
     const reset = () => {
         dispatch(tableActions.initialize());
+        dispatch(hisotryActions.initialize());
     }
 
     const result = () => {
