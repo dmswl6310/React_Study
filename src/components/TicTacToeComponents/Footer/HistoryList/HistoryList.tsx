@@ -15,7 +15,7 @@ const HistoryList = () => {
     const dispatch = useDispatch();
     const history: HistoryData[] = useSelector((state: RootState) => state.history.history);
 
-    const onClick = ( index: number) => {
+    const onClick = (index: number) => {
         console.log(`${index + 1} 번째 history 클릭.`);
 
         const newHistory = history.filter((data, idx) => idx <= index);
@@ -24,10 +24,10 @@ const HistoryList = () => {
     };
 
     return (
-        <Wrapper>{history.map((historyData, idx) => 
+        <Wrapper>{history.map((historyData, idx) =>
             <HistoryItem key={idx}
-                         text={historyToString(historyData.data[historyData.clickedIdx], idx)}
-                         onClick={() => onClick(idx)}></HistoryItem>)}
+                text={historyToString(historyData.data[historyData.clickedIdx], idx)}
+                onClick={() => onClick(idx)}></HistoryItem>)}
         </Wrapper>
     );
 };

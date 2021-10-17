@@ -48,7 +48,7 @@ export default function tableReducers(
     state = initState,
     action: { type: string; payload?: any; error?: boolean }
 ) {
-    switch(action.type) {
+    switch (action.type) {
         case table.INITIALIZE:
             return initState;
         case table.GET_STATE:
@@ -56,17 +56,18 @@ export default function tableReducers(
         case table.SET_TABLE_DATA:
             return { ...state, data: action.payload };
         case table.SET_TURN:
-            return { ...state, turn: action.payload};
+            return { ...state, turn: action.payload };
         case table.SET_GAME_STATE:
-            return { ...state, gameState: action.payload};
+            return { ...state, gameState: action.payload };
         case table.SET_HISTORY:
-            return { ...state,
-                     data: action.payload.data,
-                     turn: action.payload.turn,
-                     gameState: action.payload.gameState,
-                     clickedIdx: action.payload.clickedIdx
-                    };
-        default: 
+            return {
+                ...state,
+                data: action.payload.data,
+                turn: action.payload.turn,
+                gameState: action.payload.gameState,
+                clickedIdx: action.payload.clickedIdx
+            };
+        default:
             return state;
     }
 }

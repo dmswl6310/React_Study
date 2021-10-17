@@ -8,7 +8,7 @@ export default function historyReducers(
     state = initState,
     action: { type: string; payload?: any, error?: boolean }
 ) {
-    switch(action.type) {
+    switch (action.type) {
         case history.INITIALIZE:
             return initState;
         case history.SET_HISTORY:

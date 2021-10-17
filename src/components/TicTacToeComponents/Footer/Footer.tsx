@@ -14,7 +14,7 @@ const Footer = () => {
     }
 
     const result = () => {
-        if(gameState === 2) {
+        if (gameState === 2) {
             return (
                 turn === 9 ? 'Draw!' : ''
             );
@@ -30,7 +30,7 @@ const Footer = () => {
             {<button type="button" onClick={reset}>Reset</button>}
             <h1>{result()}</h1>
 
-            <HistoryList/>
+            <HistoryList />
         </div>
     );
 }

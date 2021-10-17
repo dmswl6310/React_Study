@@ -6,9 +6,9 @@ const Tile = (props: {
 }) => {
     const state: number = props.data.state;
     const print = (): string => {
-        if(state === 0) {
+        if (state === 0) {
             return 'O';
-        } else if(state === 1) {
+        } else if (state === 1) {
             return 'X';
         } else {
             return '';

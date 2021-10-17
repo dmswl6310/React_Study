@@ -4,7 +4,7 @@ import { Table } from "../Table";
 
 const TicTacToe = () => {
     return (
-        <MainContainer header={<Header/>} body={<Table/>} footer={<Footer/>}/>
+        <MainContainer header={<Header />} body={<Table />} footer={<Footer />} />
     );
 };
 

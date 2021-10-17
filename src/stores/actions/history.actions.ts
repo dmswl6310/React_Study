@@ -5,5 +5,5 @@ export const history = {
 
 export const hisotryActions = {
     initialize: () => ({ type: history.INITIALIZE }),
-    setHistory: ( historyData: HistoryData[] ) => ({ type: history.SET_HISTORY, payload: historyData})
+    setHistory: (historyData: HistoryData[]) => ({ type: history.SET_HISTORY, payload: historyData })
 };
