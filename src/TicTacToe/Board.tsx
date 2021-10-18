@@ -1,35 +1,55 @@
 import styled from "styled-components";
-import * as actions from '../actions'
-import {useDispatch, useSelector } from 'react-redux';
+import * as actions from "../actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Board = () => {
+  const dispatch = useDispatch();
+  const nextPlayer = useSelector((state: { nextPlayer: string }) => ({
+    nextPlayer: state.nextPlayer,
+  }));
 
-const dispatch=useDispatch();
-
-const handleClick=()=>{
-  // const {nextPlayer}=useSelector(state=>({
-  //   nextPlayer:state.
-  // }))
-  dispatch(actions.changePlayer())
-}
+  // useEffect(() => {
+  //   console.log("efefefef", nextPlayer);
+  // });
+  const handleClick = () => {
+    dispatch(actions.changePlayer());
+  };
 
   return (
     <TableContainer>
       <Table>
         <Row>
-          <Data onClick={handleClick} className="content">O</Data>
-          <Data onClick={handleClick} className="content">O</Data>
-          <Data onClick={handleClick} className="content">O</Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
         </Row>
         <Row>
-          <Data onClick={handleClick} className="content">O</Data>
-          <Data onClick={handleClick} className="content">O</Data>
-          <Data onClick={handleClick} className="content">O</Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
         </Row>
         <Row>
-          <Data onClick={handleClick} className="content">O</Data>
-          <Data onClick={handleClick} className="content">O</Data>
-          <Data onClick={handleClick} className="content">O</Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
+          <Data onClick={handleClick} className="content">
+            O
+          </Data>
         </Row>
       </Table>
     </TableContainer>
@@ -46,8 +66,7 @@ const TableContainer = styled.div`
 const Table = styled.table`
   width: 90%;
 `;
-const Row = styled.tr`
-`;
+const Row = styled.tr``;
 const Data = styled.td`
   width: 33.33%;
   position: relative;

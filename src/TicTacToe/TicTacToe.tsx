@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 const TicTacToe = () => {
+  const [boardState, setBoardState] = useState([]);
   return (
     <Container>
       <Header />
