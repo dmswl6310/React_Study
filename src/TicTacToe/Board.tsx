@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as actions from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 
-const Board = () => {
+const Board = (props: { boardState: any; setBoard: any }) => {
   const dispatch = useDispatch();
   const nextPlayer = useSelector((state: { nextPlayer: string }) => ({
     nextPlayer: state.nextPlayer,

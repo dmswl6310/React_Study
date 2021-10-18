@@ -1,9 +1,9 @@
 import Board from "./Board";
 
-const Body = () => {
+const Body = (props: { boardState: any; setBoard: any }) => {
   return (
     <>
-      <Board />
+      <Board boardState={boardState} setBoard={setBoard} />
     </>
   );
 };
