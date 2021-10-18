@@ -19,7 +19,7 @@
  
   ![틱택토 기본 알고리즘](https://user-images.githubusercontent.com/45475492/136339444-f0d3d82d-407a-4893-9f93-ecb037cb7ea5.png)
 
-  틱택토 게임은 리액트 자습서(https://ko.reactjs.org/tutorial/tutorial.html)의 예제이다!!
+  틱택토 게임은 리액트 자습서(https://ko.reactjs.org/tutorial/tutorial.html)   의 예제이다!!
   
   (정답이 나와있으니 최대한 안보고 해보자)
   
