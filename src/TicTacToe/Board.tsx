@@ -78,7 +78,7 @@ const Board = (props: { boardState: any; setBoard: any; size: number }) => {
   ));
 
   return winner !== "" ? (
-    <div>{nextPlayer}승리!!</div>
+    <div>{winner}승리!!</div>
   ) : (
     <TableContainer>
       <Table>{newBoard}</Table>
