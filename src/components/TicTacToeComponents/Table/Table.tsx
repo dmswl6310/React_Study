@@ -19,7 +19,7 @@ const Table = () => {
         }
 
         if (turn !== 9 && table[index].state === 2) {
-            const newData = { no: index, state: turn % 2 };
+            const newData = { no: index, state: turn % 2, highlight: false };
             const newTableData: Table[] = table.map((data, idx) =>
                 idx === index ? newData : data
             );
@@ -30,8 +30,12 @@ const Table = () => {
             dispatch(tableActions.setTableData(newTableData));
             dispatch(tableActions.setGameState(newGameState));
 
+            console.log(history);
+
             const historyData: HistoryData = { data: newTableData, turn: newTurn, gameState: newGameState, clickedIdx: index };
             const newHistory = history.concat(historyData);
+
+            console.log(newHistory);
 
             dispatch(hisotryActions.setHistory(newHistory));
         }
@@ -45,13 +49,19 @@ const Table = () => {
         if (newTableData[x * 3].state === nowState
             && newTableData[x * 3 + 1].state === nowState
             && newTableData[x * 3 + 2].state === nowState) {
-            return nowState;
+                newTableData[x * 3].highlight = true;
+                newTableData[x * 3 + 1].highlight = true;
+                newTableData[x * 3 + 2].highlight = true;
+                return nowState;
         }
 
         // 세로
         if (newTableData[0 + y].state === nowState
             && newTableData[3 + y].state === nowState
             && newTableData[6 + y].state === nowState) {
+                newTableData[0 + y].highlight = true;
+                newTableData[3 + y].highlight = true;
+                newTableData[6 + y].highlight = true;
             return nowState;
         }
 
@@ -64,10 +74,16 @@ const Table = () => {
         if (newTableData[0].state === nowState
             && newTableData[4].state === nowState
             && newTableData[8].state === nowState) {
+                newTableData[0].highlight = true;
+                newTableData[4].highlight = true;
+                newTableData[8].highlight = true;
             return nowState;
         } else if (newTableData[2].state === nowState
             && newTableData[4].state === nowState
             && newTableData[6].state === nowState) {
+                newTableData[2].highlight = true;
+                newTableData[4].highlight = true;
+                newTableData[6].highlight = true;
             return nowState;
         }
 
@@ -109,5 +125,4 @@ const Row = styled.div`
     flex-Direction: row;
     height:auto;
     width:auto;
-    background-color: black;
 `;

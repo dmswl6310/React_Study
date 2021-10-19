@@ -16,13 +16,13 @@ const Tile = (props: {
     };
 
     return (
-        <Wrapper color={state} onClick={props.onClick}>
+        <Wrapper bgColor={props.data.highlight} color={state} onClick={props.onClick}>
             {print()}
         </Wrapper>
     );
 };
 
-const Wrapper = styled.div<{ color: any }>`
+const Wrapper = styled.div<{ color: any, bgColor: boolean }>`
     border: 1px solid orange;
     width: 100px;
     height: 100px;
@@ -31,6 +31,7 @@ const Wrapper = styled.div<{ color: any }>`
     align-items: center;
     font-size: 70px;
     color: ${(props) => (props.color === 1 ? 'red' : 'green')};
+    background-color: ${(props) => (props.bgColor ? 'white' : 'black')}
 `;
 
 export default Tile;
