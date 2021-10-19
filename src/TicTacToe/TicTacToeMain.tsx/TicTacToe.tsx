@@ -13,6 +13,7 @@ const TicTacToe = () => {
       <MainWrapper>
         <TurnText>{drawOX(turn)+' turn'}</TurnText>
         <Board turn={turn} setTurn={setTurn} drawOX={()=>drawOX(turn)}/>
+        <div>bottom</div>
       </MainWrapper>
     </>
   );
