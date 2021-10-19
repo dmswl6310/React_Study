@@ -5,7 +5,7 @@ const BeforeGame = () => {
   const [inputNum, setInputNum] = useState(0);
   return inputNum === 0 ? (
     <div>
-      빙고길이는?
+      빙고길이는?(1~9 사이값을 입력하세요)
       <br />
       <input
         onChange={(e) => {
