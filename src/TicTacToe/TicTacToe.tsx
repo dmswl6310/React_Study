@@ -4,16 +4,19 @@ import Body from "./Body";
 import Footer from "./Footer";
 import Header from "./Header";
 
-const TicTacToe = () => {
-  const [boardState, setBoardState] = useState([
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""],
-  ]);
+const TicTacToe = (props: { size: number }) => {
+  const [boardState, setBoardState] = useState(
+    Array.from(Array(props.size), () => new Array(props.size).fill(""))
+  );
+
   return (
     <Container>
       <Header />
-      <Body boardState={boardState} setBoard={setBoardState} />
+      <Body
+        boardState={boardState}
+        setBoard={setBoardState}
+        size={props.size}
+      />
       <Footer />
     </Container>
   );

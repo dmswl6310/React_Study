@@ -1,5 +1,6 @@
-import TicTacToe from "./TicTacToe/TicTacToe";
-import TodoList from "./Todo_List/TodoList";
+import BeforeGame from "./TicTacToe/BeforeGame";
+// import TicTacToe from "./TicTacToe/TicTacToe";
+// import TodoList from "./Todo_List/TodoList";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       게임에서 승리했을 때를 알려주며,
       게임이 진행됨에 따라 게임 기록을 저장하고, (심화)
       플레이어가 게임 기록을 확인하고 게임판의 이전 버전을 볼 수 있도록 허용합니다. (심화) */}
-      <TicTacToe />
+      <BeforeGame />
     </div>
   );
 }
