@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Board from "../Board";
+import {useSelector} from "react-redux";
+import {RootState} from '../../stores';
 
 const TicTacToe = () => {
   const [turn, setTurn] = useState<boolean>(Math.random() > 0.5 ? true : false);
+  const {user} = useSelector(
+    (state:RootState)=>({
+      user:state.user.userState
+    })
+  )
+
   const drawOX = (turn:boolean):string =>{
     return turn?"O":"X"
   }
@@ -13,7 +21,7 @@ const TicTacToe = () => {
       <MainWrapper>
         <TurnText>{drawOX(turn)+' turn'}</TurnText>
         <Board turn={turn} setTurn={setTurn} drawOX={()=>drawOX(turn)}/>
-        <div>bottom</div>
+        <div>{user+''}</div>
       </MainWrapper>
     </>
   );

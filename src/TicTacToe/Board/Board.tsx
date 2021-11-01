@@ -1,12 +1,21 @@
 import { useState } from "react";
 import styled from "styled-components";
+import {useSelector, useDispatch} from "react-redux";
+import {RootState} from '../../stores';
+import {userActions} from '../..//stores/actions';
 
 const Board = (props: { turn: boolean; setTurn: any; drawOX: any }) => {
   const { turn, setTurn, drawOX } = props;
-  const [end, setEnd] = useState<boolean>(true);
+  // const [end, setEnd] = useState<boolean>(true);
   const [box, setBox] = useState<tictactoetype>(
     new Array(9).fill({ player: "　", use: false })
   );
+  const {user} = useSelector(
+    (state:RootState)=>({
+      user:state.user.userState
+    })
+  )
+  const dispatch = useDispatch();
 
   const onClick = (idx: number) => {
     let nextBox: {
@@ -14,7 +23,7 @@ const Board = (props: { turn: boolean; setTurn: any; drawOX: any }) => {
       use: boolean;
     }[] = [];
     const tempbox = box.slice();
-    if (end) {
+    if (user) {
       if (!box[idx].use) {
         let i = 0;
 
@@ -40,6 +49,7 @@ const Board = (props: { turn: boolean; setTurn: any; drawOX: any }) => {
         alert("이미 채워져있습니다. 다른 곳에 놓아주세요.");
       }
     }
+    
   };
   const checkWin = (box: tictactoetype) => {
     let i = 0;
@@ -56,7 +66,7 @@ const Board = (props: { turn: boolean; setTurn: any; drawOX: any }) => {
         ) {
           alert(box[i].player + " Win !!!");
           setTurn(turn);
-          setEnd(false);
+          dispatch(userActions.setUser(!user));
         }
       }
       if (i === 2) {
@@ -70,7 +80,7 @@ const Board = (props: { turn: boolean; setTurn: any; drawOX: any }) => {
         ) {
           alert(box[i].player + " Win !!!");
           setTurn(turn);
-          setEnd(false);
+          dispatch(userActions.setUser(!user));
         }
       }
       if (i === 0 || i === 1 || i === 2) {
@@ -84,7 +94,7 @@ const Board = (props: { turn: boolean; setTurn: any; drawOX: any }) => {
         ) {
           alert(box[i].player + " Win !!!");
           setTurn(turn);
-          setEnd(false);
+          dispatch(userActions.setUser(!user));
         }
       }
       if (i === 0) {
@@ -98,7 +108,7 @@ const Board = (props: { turn: boolean; setTurn: any; drawOX: any }) => {
         ) {
           alert(box[i].player + " Win !!!");
           setTurn(turn);
-          setEnd(false);
+          dispatch(userActions.setUser(!user));
         }
       }
       i++;
