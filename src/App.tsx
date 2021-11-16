@@ -1,5 +1,6 @@
-// import TodoList from "./components/Organism/TodoList";
-import TicTacToe from "./components/Pages/TicTacToe";
+import TodoList from "./components/Organism/TodoList";
+import Test from "./components/Pages/Test";
+// import TicTacToe from "./components/Pages/TicTacToe";
 
 function App() {
   return (
@@ -11,10 +12,11 @@ function App() {
 
     //   <h3> 추가 작업</h3>
     //   <li> 선택된 작업에 대해 위 / 아래 버튼을 통해 목록의 순서 조정하기 </li>
-    
-    //   <TodoList />
+
+    // <TodoList />
+    <Test />
     // </div>
-      <TicTacToe />
+    // <TicTacToe />
   );
 }
 
